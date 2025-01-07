@@ -1,0 +1,12 @@
+name: Translate Markdown Files
+
+on:
+  push:
+    paths:
+      - '**/*.md'
+
+jobs:
+  call-translate-markdown:
+    uses: rimoapp/bilingual-github/.github/workflows/translate-markdown.yml@main
+    with:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}

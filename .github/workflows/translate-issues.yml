@@ -1,0 +1,14 @@
+name: Translate GitHub Issues
+
+on:
+  issues:
+    types:
+      - opened
+      - edited
+
+jobs:
+  call-translate-issues:
+    uses: rimoapp/bilingual-github/.github/workflows/translate-issues.yml@main
+    with:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
