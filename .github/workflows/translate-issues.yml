@@ -9,6 +9,6 @@ on:
 jobs:
   call-translate-issues:
     uses: rimoapp/bilingual-github/.github/workflows/translate-issues.yml@main
-    with:
+    secrets: # Pass the GITHUB_TOKEN here
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }} # Pass this if required
