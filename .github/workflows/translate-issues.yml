@@ -12,4 +12,4 @@ jobs:
     secrets: # Pass the GITHUB_TOKEN here
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }} # Pass this if required
     with:
-      issue_number:  13 # Pass the issue number from the event
+      issue_number: ${{ github.event.issue.number }}  # Pass the issue number from the event
