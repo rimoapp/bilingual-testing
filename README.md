@@ -8,3 +8,5 @@ I am neither this body nor the mind
 I am infinite
 I am powerful
 I am divine
+
+I am infine, i am powerful
