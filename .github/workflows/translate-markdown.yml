@@ -10,4 +10,4 @@ jobs:
     uses: rimoapp/bilingual-github/.github/workflows/translate-markdown.yml@main
     secrets:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
