@@ -8,6 +8,8 @@ on:
 jobs:
   call-translate-markdown:
     uses: rimoapp/bilingual-github/.github/workflows/translate-markdown.yml@main
+    with:
+      target_repo: rimoapp/bilingual-testing
     secrets:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       PAT: ${{ secrets.GITHUB_TOKEN }}
