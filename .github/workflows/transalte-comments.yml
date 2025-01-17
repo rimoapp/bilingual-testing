@@ -1,4 +1,4 @@
-name: Translate GitHub Comments
+name: Translate Issue Comments
 
 on:
   issue_comment:
@@ -7,9 +7,10 @@ on:
       - edited
 
 jobs:
-  call-translate-issues:
-    uses: rimoapp/bilingual-github/.github/workflows/translate-issues.yml@main
+  call-translate-comments:
+    uses: rimoapp/bilingual-github/.github/workflows/translate-comments.yml@main
     secrets:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
     with:
       issue_number: ${{ github.event.issue.number }}
+      comment_id: ${{ github.event.comment.id }}
