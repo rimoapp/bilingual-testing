@@ -1,4 +1,6 @@
 # bilingual-testing
 To translate issues in Ja.
-Hello, How are you.
+Hello, How are you .
+# I am fine
+
 
