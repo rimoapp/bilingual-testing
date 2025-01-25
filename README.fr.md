@@ -1,4 +1,4 @@
 # test-bilingue
-Pour traduire les problèmes en Ja.
+Pour traduire des problèmes en Ja.
 Bonjour, comment ça va ?
-# Je vais bien
+# Je vais bien, bonjour
