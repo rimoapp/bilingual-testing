@@ -1,6 +1,6 @@
 # bilingual-testing
 To translate issues in Ja.
 Hello, How are you .
-# I am fine
+# I am fine, hello
 
 
