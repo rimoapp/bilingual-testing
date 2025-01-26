@@ -1,6 +1,4 @@
-# bilingual-testing
-To translate issues in Ja.
-Hello, How are you .
-# I am fine, hello
+# バイリンガルテスト
+Jaに問題を翻訳するために。 こんにちは、お元気ですか。
 
-
+# 私は元気です、こんにちは
