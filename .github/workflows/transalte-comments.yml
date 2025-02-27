@@ -21,6 +21,5 @@ jobs:
     with:
       issue_number: ${{ github.event.issue.number }}
       comment_id: ${{ github.event.comment.id || '' }}
-      translate_all_comments: ${{ github.event_name == 'issues' }}
 
 
