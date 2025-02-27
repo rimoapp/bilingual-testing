@@ -7,14 +7,12 @@ on:
   issues:
     types:
       - labeled
-  workflow_dispatch:
-
+      
 jobs:
   call-translate-comments:
     if: |
       (github.event_name == 'issues' && github.event.label.name == 'need translation') ||
-      github.event_name == 'issue_comment' ||
-      github.event_name == 'workflow_dispatch'
+      github.event_name == 'issue_comment' 
     uses: rimoapp/bilingual-github/.github/workflows/translate-comments.yml@main
     secrets:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
