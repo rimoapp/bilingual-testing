@@ -1,16 +1,23 @@
 name: Translate Issue Comments
-
 on:
   issue_comment:
     types:
       - created
       - edited
-
+  issues:
+    types:
+      - labeled
+      
 jobs:
   call-translate-comments:
+    if: |
+      (github.event_name == 'issues' && github.event.label.name == 'need translation') ||
+      github.event_name == 'issue_comment' 
     uses: rimoapp/bilingual-github/.github/workflows/translate-comments.yml@main
     secrets:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
     with:
       issue_number: ${{ github.event.issue.number }}
-      comment_id: ${{ github.event.comment.id }}
+      comment_id: ${{ github.event.comment.id || '' }}
+
+

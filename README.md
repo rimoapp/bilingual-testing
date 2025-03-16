@@ -1,4 +1,6 @@
-# バイリンガルテスト
-Jaに問題を翻訳するために。 こんにちは、お元気ですか。
-
-# 私は元気です、こんにちは
+## bilingual-testing 
+- Testing for bilingual-github
+- Create issues in either English or Japanese
+- Automated translation will generate bilingual issue descriptions
+- Translations help team collaboration across language barriers
+  
