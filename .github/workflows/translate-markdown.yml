@@ -53,6 +53,4 @@ jobs:
     if: always() && (needs.check-for-workflow-file.outputs.workflow_added == 'false' || needs.process-existing-files.result == 'success' || needs.process-existing-files.result == 'skipped')
     uses: rimoapp/bilingual-github/.github/workflows/translate-markdown.yml@main
     secrets:
-      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-
-  ##markdown    
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}   
