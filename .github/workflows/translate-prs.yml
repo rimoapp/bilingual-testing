@@ -16,10 +16,10 @@ jobs:
       (github.event_name == 'pull_request' && 
         (github.event.label.name == 'need translation' ||
          (github.event.action == 'edited' && contains(github.event.pull_request.labels.*.name, 'need translation')))) ||
-      (github.event_name == 'issue_comment' && github.event.issue.pull_request)
+      (github.event_name == 'issue_comment' && github.event.issue.pull_request && contains(github.event.issue.labels.*.name, 'need translation'))
     uses: rimoapp/bilingual-github/.github/workflows/translate-prs.yml@main
     secrets:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
     with:
       pr_number: ${{ github.event.pull_request.number || github.event.issue.number }}
-      comment_id: ${{ github.event.comment.id || '' }}
+      comment_id: ${{ github.event.comment.id || '' }} 
