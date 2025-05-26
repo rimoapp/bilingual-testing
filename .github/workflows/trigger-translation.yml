@@ -23,8 +23,8 @@ on:
 
 permissions:
   contents: read
-  pull-requests: read
-  issues: read
+  pull-requests: write
+  issues: write
 
 jobs:
   trigger-translation:
@@ -63,4 +63,4 @@ jobs:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
     with:
       issue_number: ${{ github.event.issue.number || github.event.pull_request.number }}
-      comment_id: ${{ github.event.comment.id || github.event.review_comment.id || github.event.review.id || '' }} 
+      comment_id: ${{ github.event.comment.id || github.event.review_comment.id || github.event.review.id || '' }}  
