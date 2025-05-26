@@ -58,10 +58,11 @@ jobs:
         github.event_name == 'pull_request_review' &&
         contains(github.event.pull_request.labels.*.name, 'need translation')
       )
-    uses: rimoapp/bilingual-github/.github/workflows/translate.yml@main
+    uses: rimoapp/bilingual-github/.github/workflows/translate.yml@refs/heads/main
     secrets:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     with:
       issue_number: ${{ github.event.issue.number || github.event.pull_request.number }}
       comment_id: ${{ github.event.comment.id || github.event.review_comment.id || github.event.review.id || '' }}
-      target_repository: ${{ github.repository }}  
+      target_repository: ${{ github.repository }}   
