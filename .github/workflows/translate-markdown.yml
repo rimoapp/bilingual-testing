@@ -49,7 +49,7 @@ jobs:
           # Check for modified or added markdown files
           CHANGED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.event.after }})
           echo "Changed files: $CHANGED_FILES"
-          MD_FILES=$(echo "$CHANGED_FILES" | grep -E '\.md$|^docs/')
+          MD_FILES=$(echo "$CHANGED_FILES" | grep -E '\.md$|^docs/' || true)
           echo "Markdown files: $MD_FILES"
           
           if [[ -n "$MD_FILES" ]]; then
@@ -69,4 +69,4 @@ jobs:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
     with:
       is_initial_setup: ${{ needs.check-markdown-changes.outputs.is_initial_setup }}
-      changed_files: ${{ github.event.head_commit.modified }} 
+      changed_files: ${{ github.event.head_commit.modified }}  
