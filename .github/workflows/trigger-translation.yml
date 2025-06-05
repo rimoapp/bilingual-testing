@@ -68,5 +68,5 @@ jobs:
     secrets:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
     with:
-      is_initial_setup: ${{ needs.check-markdown-changes.outputs.is_initial_setup }}
-      changed_files: ${{ github.event.head_commit.modified }}  
+      is_initial_setup: ${{ needs.check-markdown-changes.outputs.is_initial_setup == 'true' }}
+      changed_files: ${{ github.event.head_commit.modified }} 
