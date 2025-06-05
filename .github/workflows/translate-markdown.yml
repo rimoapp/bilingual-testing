@@ -1,12 +1,55 @@
-name: Translate Docs
+name: Markdown Translation
 
 on:
   push:
+    branches:
+      - main
     paths:
-      - 'docs/**/*.md'
+      - '**.md'
+      - 'docs/**'
+      - 'README.md'
+      - '.github/workflows/trigger-translation.yml'
 
 jobs:
-  translate-docs:
-    uses: rimoapp/bilingual-github/.github/workflows/translate-markdown.yml@main
+  check-markdown-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      has_changes: ${{ steps.check.outputs.has_changes }}
+      is_initial_setup: ${{ steps.check.outputs.is_initial_setup }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Fetch all history for initial setup detection
+
+      - name: Check for changes
+        id: check
+        run: |
+          # Check if this is the first commit with the workflow file
+          if [[ "${{ github.event_name }}" == "push" && "${{ github.event.before }}" == "0000000000000000000000000000000000000000" ]]; then
+            echo "is_initial_setup=true" >> $GITHUB_OUTPUT
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          # Check for modified or added markdown files
+          CHANGED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.event.after }})
+          MD_FILES=$(echo "$CHANGED_FILES" | grep -E '\.md$|^docs/')
+          
+          if [[ -n "$MD_FILES" ]]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
+          
+          echo "is_initial_setup=false" >> $GITHUB_OUTPUT
+
+  trigger-markdown-translation:
+    needs: check-markdown-changes
+    if: needs.check-markdown-changes.outputs.has_changes == 'true'
+    uses: ./.github/workflows/translate-markdown.yml
     secrets:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+    with:
+      is_initial_setup: ${{ needs.check-markdown-changes.outputs.is_initial_setup }}
+      changed_files: ${{ github.event.head_commit.modified }} 
