@@ -1,9 +1,10 @@
-name: Markdown Translation
+name: Trigger Markdown Translation
 
 on:
   push:
     branches:
       - main
+      - master  # Adding master branch as well
     paths:
       - '**.md'
       - 'docs/**'
@@ -11,7 +12,20 @@ on:
       - '.github/workflows/trigger-translation.yml'
 
 jobs:
+  debug-info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Debug Information
+        run: |
+          echo "Event Name: ${{ github.event_name }}"
+          echo "Ref: ${{ github.ref }}"
+          echo "Before: ${{ github.event.before }}"
+          echo "After: ${{ github.event.after }}"
+          echo "Modified Files: ${{ github.event.head_commit.modified }}"
+          echo "Added Files: ${{ github.event.head_commit.added }}"
+
   check-markdown-changes:
+    needs: debug-info
     runs-on: ubuntu-latest
     outputs:
       has_changes: ${{ steps.check.outputs.has_changes }}
@@ -34,7 +48,9 @@ jobs:
 
           # Check for modified or added markdown files
           CHANGED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.event.after }})
+          echo "Changed files: $CHANGED_FILES"
           MD_FILES=$(echo "$CHANGED_FILES" | grep -E '\.md$|^docs/')
+          echo "Markdown files: $MD_FILES"
           
           if [[ -n "$MD_FILES" ]]; then
             echo "has_changes=true" >> $GITHUB_OUTPUT
@@ -47,7 +63,7 @@ jobs:
   trigger-markdown-translation:
     needs: check-markdown-changes
     if: needs.check-markdown-changes.outputs.has_changes == 'true'
-    uses: ./.github/workflows/translate-markdown.yml
+    uses: rimoapp/bilingual-github/.github/workflows/translate-markdown.yml@main
     secrets:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
     with:
