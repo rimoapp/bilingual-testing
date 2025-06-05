@@ -1,0 +1,4 @@
+### Diarization during Note Upload
+The "Speaker Extraction during Note Upload" mentioned above is executed, assigning Participants to the Note before performing speaker separation. Essentially, speaker separation is carried out corresponding to the Participants, and speakers are assigned to each Segment.
+
+Additionally, there is a function to output any speech from unaffiliated speakers as "Unassigned." The speaker separation API can receive information about the speakers and an `speaker_num_hint: int`. If the number indicated by `speaker_num_hint` is greater than the number of speakers, it will output "Unassigned (1)", "Unassigned (2)", etc., indicating that while it is uncertain who the speaker is, it has been separated as an unidentified speaker. Conversely, if the number of speakers matches the `speaker_num_hint`, it will not output any unassigned speakers.
