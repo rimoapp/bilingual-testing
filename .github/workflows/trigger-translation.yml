@@ -9,7 +9,7 @@ on:
       - '**.md'
       - 'docs/**'
       - 'README.md'
-      - '.github/workflows/translate-markdown.yml'
+      - '.github/workflows/trigger-translation.yml'
 
 jobs:
   debug-info:
