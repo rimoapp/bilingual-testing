@@ -5,7 +5,7 @@
 自動話者分離は以下の3つの機能の組み合わせによって成立している。
 
 - Speaker Embeddingの事前計算
-- Noteアップロード時のSpeaker Extraction
+- Noteアップロード時のSpeaker Extractions
 - Noteアップロード時のDiarization
 
 ### Speaker Embeddingの事前計算
