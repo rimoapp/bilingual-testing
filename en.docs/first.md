@@ -1,4 +1,0 @@
-### Diarization during Note Upload
-The "Speaker Extraction during Note Upload" mentioned above is performed, with Participants assigned to the Note, and speaker separation is executed. Essentially, speaker separation is conducted according to the Participants, and speakers are assigned to each Segment.
-
-Additionally, there is a function to output unregistered speech as "Unset." The speaker separation API can receive both the information of speakers and the `speaker_num_hint: int` parameter. If the number of speakers in `speaker_num_hint` is greater, it will output "Unset (1)," "Unset (2)," and so on, representing "undefined speakers that have been separated." Conversely, if the number of speakers matches the `speaker_num_hint`, it will not output any unset speakers.
