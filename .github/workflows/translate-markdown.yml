@@ -59,6 +59,7 @@ jobs:
           fi
           
           echo "is_initial_setup=false" >> $GITHUB_OUTPUT
+          exit 0
 
   trigger-markdown-translation:
     needs: check-markdown-changes
