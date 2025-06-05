@@ -1,5 +1,5 @@
 ### Noteアップロード時のDiarization
-上の「Noteアップロード時のSpeaker Extraction」が行われ、Noteに対してParticpantsが割り当てられた上で話者分離が動く。
+上の「Noteアップロード時のSpeaker Extractions」が行われ、Noteに対してParticpantsが割り当てられた上で話者分離が動く。
 基本的にはParticipantsに対応する話者で話者分離し、各Segmentに対して話者が割り当てられる。
 
 また、話者登録されていない発話を「未設定」として出力する機能もある。
