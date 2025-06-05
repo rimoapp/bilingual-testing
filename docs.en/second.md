@@ -1,12 +1,12 @@
 ## Automatic Speaker Separation
-Automatic speaker separation (cross-speaker separation) refers to the ability to separate speakers without human annotations, by pre-computing speaker embeddings in advance and applying them to new notes.
+Automatic speaker separation (cross-speaker separation) refers to a feature that calculates speaker embeddings in advance and separates speakers for a new note without human annotations indicating which segments belong to which speaker.
 
-## Configuration Running on rimo
-Automatic speaker separation is achieved through the combination of the following three functions:
+## Settings in Rimo
+Automatic speaker separation is established through a combination of the following three functionalities:
 
-- Pre-computation of Speaker Embeddings
+- Pre-calculation of Speaker Embeddings
 - Speaker Extraction during Note Upload
 - Diarization during Note Upload
 
-### Pre-computation of Speaker Embeddings
-Speaker embeddings are computed for speakers based on annotations made by humans on notes within rimo. This process is executed through a cron job, running once a day for notes that have updates to their annotations at that time.
+### Pre-calculation of Speaker Embeddings
+For notes on Rimo, speaker embeddings are calculated from annotations where humans have labeled speakers. This process is executed via a cron job and runs once a day using notes that have updates to their annotations at that time.
