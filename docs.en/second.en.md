@@ -9,4 +9,4 @@ Automatic speaker separation is established through the combination of the follo
 - Diarization during Note uploads
 
 ### Pre-computation of Speaker Embeddings
-For Notes on Rimo, the embeddings of speakers are computed based on annotations where humans have identified the speakers. This process is executed by a cron job, running once a day with the Notes that have updates to their annotations at that time being used as data.
+For Notes on Rimo, the embeddings of speakers are computed based on annotations where humans have identified the speakers. This process is executed by a cron job, running once a day with the Notes that have updates to their annotations at that time being used as data. 
