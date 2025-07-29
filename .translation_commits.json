@@ -1,0 +1,24 @@
+{
+  "Dir/Disc/Domain/Test1.en.md": {
+    "hash": "ee301eee21b2e025e993e9bbd60e925f",
+    "commit": "73db08c4c337915c55e35be862d85f3f3697c50a",
+    "timestamp": "2025-07-29T17:24:19.468314",
+    "source_file": "Dir/Disc/Domain/Test1.ja.md"
+  },
+  "Dir/Disc/Domain/Test1.ja.md": {
+    "hash": "e48128d44b5f595fc16734449b44d331",
+    "commit": "73db08c4c337915c55e35be862d85f3f3697c50a",
+    "timestamp": "2025-07-29T17:24:19.468324"
+  },
+  "Test2.ja.md": {
+    "hash": "69be6352fde170e9541a9b1535f7fbe0",
+    "commit": "73db08c4c337915c55e35be862d85f3f3697c50a",
+    "timestamp": "2025-07-29T17:24:20.491058",
+    "source_file": "Test2.en.md"
+  },
+  "Test2.en.md": {
+    "hash": "250da393ddcb185a7ab92b13e21cc5f8",
+    "commit": "73db08c4c337915c55e35be862d85f3f3697c50a",
+    "timestamp": "2025-07-29T17:24:20.491066"
+  }
+}
